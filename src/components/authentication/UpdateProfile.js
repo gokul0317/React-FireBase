@@ -3,7 +3,8 @@ import { Card, Form, Button, Alert } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
 
-import { useAuth } from '../context/AuthContext'
+import { useAuth } from '../../context/AuthContext'
+import CenteredContainer from '../CenteredContainer'
 
 export default function UpdateProfile() {
     const history = useHistory()
@@ -33,7 +34,7 @@ export default function UpdateProfile() {
            setError('')
            setLoading(true)
            await Promise.all(promises)
-           history.push('/')
+           history.push('/user')
         } catch (e) {
             console.log(e)
             return setError(`Failed to create user`)
@@ -42,7 +43,7 @@ export default function UpdateProfile() {
         }
     }
     return (
-        <>
+        <CenteredContainer>
           <Card>
             <Card.Body>
                 <h2 className="text-center mb-4">Update Profile</h2>
@@ -65,8 +66,8 @@ export default function UpdateProfile() {
             </Card.Body>
           </Card>
           <div className="w-100 text-center mt-3">
-            <Link to='/'>Cancel</Link> 
+            <Link to='/user'>Cancel</Link> 
           </div>
-        </>
+        </CenteredContainer>
     )
 }

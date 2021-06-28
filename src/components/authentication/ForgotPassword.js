@@ -1,8 +1,9 @@
 import React, { useRef, useState } from 'react'
 import { Card, Form, Button, Alert } from 'react-bootstrap'
 import { Link, useHistory } from 'react-router-dom'
+import CenteredContainer from '../CenteredContainer'
 
-import { useAuth } from '../context/AuthContext'
+import { useAuth } from '../../context/AuthContext'
 export default function ForgotPassword() {
     const history = useHistory()
     const emailRef = useRef()
@@ -26,7 +27,7 @@ export default function ForgotPassword() {
         }
     }
     return (
-        <>
+        <CenteredContainer>
           <Card>
             <Card.Body>
                 <h2 className="text-center mb-4">Password Reset</h2>
@@ -46,6 +47,6 @@ export default function ForgotPassword() {
           <div className="w-100 text-center mt-2">
               Create an account? <Link to='/signup'>Sign Up</Link>
           </div>
-        </>
+        </CenteredContainer>
     )
 }
